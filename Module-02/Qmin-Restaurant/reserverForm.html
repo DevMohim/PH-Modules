@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Reservation Form | Qmin-Restaurant</title>
+</head>
+
+<body>
+   <header>
+      <img width="250" src="../images/logo.png" alt="Restaurant logo">
+      <nav>
+         <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Menus</a></li>
+            <li><a href="">Concern</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Career</a></li>
+         </ul>
+      </nav>
+      <a href="reserverForm.html">Reserve</a>
+   </header>
+   <br>
+   <hr>
+   <main>
+      <h1>Reserve our Restaurant</h1>
+      <form>
+         <fieldset>
+            <legend>Reservation Form</legend>
+
+            <p>
+               <label for="name">Full-Name :</label>
+               <input type="text" name="name" id="name">
+            </p>
+            <p>
+               <label for="email">Email :</label>
+               <input type="email" name="email" id="email">
+            </p>
+            <p>
+               <label for="phone">Contact No:</label>
+               <input type="tel" name="phone" id="phone">
+            </p>
+            <p>
+               <label for="date">Reservation Date :</label>
+               <input type="date" name="date" id="date">
+            </p>
+            <p>
+               <label for="time">Time :</label>
+               <input type="time" name="time" id="time"><span> to</span>
+               <input type="time" name="time" id="time">
+
+            </p>
+            <p>
+               <label for="foodprefer">Food Preference :</label>
+               <select name="foodprefer" id="foodprefer">
+                  <option>select one</option>
+                  <option>Vegetarian</option>
+                  <option>Non-Vegetarian</option>
+                  <option>Vegan</option>
+               </select>
+            </p>
+            <div>
+              <label>Seating preference :</label>
+
+               <input type="radio" name="seat" id="indoor" value="indoor">
+               <label for="indoor">Indoor</label>
+
+               <input type="radio" name="seat" id="outdoor" value="outdoor">
+               <label for="outdoor">Outdoor</label>
+
+               <input type="radio" name="seat" id="rooftop" value="rooftop">
+               <label for="rooftop">Rooftop</label>
+            </div>
+            <div>
+               <label>Extras :</label>
+
+               <input type="checkbox" name="extras" id="softdrink" value="soft-drink">
+               <label for="softdrink">Soft Drink</label>
+
+               <input type="checkbox" name="extras" id="dessert" value="dessert">
+               <label for="dessert">Dessert</label>
+
+               <input type="checkbox" name="extras" id="soup" value="soup-starter">
+               <label for="soup">Soup Starter</label>
+            </div>
+            <p>
+               <label for="request">Special Request:</label>
+               <textarea name="request" id="request"></textarea>
+            </p>
+            <br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+
+         </fieldset>
+      </form>
+   </main>
+   <br>
+   <hr>
+   <footer>
+      <span>Jhiltuli,Faridpur |</span>
+      <span>09965844 |</span>
+      <span>qminres@gamil.com |</span>
+      <span>&copy; 2026 DevMohim. All right reserved</span>
+
+   </footer>
+
+
+</body>
+
+</html>

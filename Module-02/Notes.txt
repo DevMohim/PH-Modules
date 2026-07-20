@@ -1,0 +1,39 @@
+In the 2nd Module , we learn Git and GitHub. 
+
+* Git is a A distributed version control system
+* GitHub is a cloud based service for hosting git repositories
+
+//* Git command
+
+   *** For 1st time push
+
+      git init -> for initialization git for that folder
+
+      git add . -> added the all file and folder 
+
+      git commit -m "meaningful message" -> git first commit
+
+      git branch -M main -> set main as a branch from master
+
+      git remote add origin "https://www.github.com/devMohim/repolink.com" -> file remote with github repo
+
+      git push -u origin main -> push your all code to github
+
+
+   *** For push after modification
+
+      git add ..
+
+      git commit -m "meaningful message"
+
+      git push
+
+
+//* We learn advance topic when work with others.
+   There are two(2) type of workflow to contribute 
+      1. git clone 
+      2. git fork (mostly used)
+
+//* command for create and switch a new brach
+
+      git checkout -b branchName
