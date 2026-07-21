@@ -75,11 +75,46 @@ const seen = [];
 
 for (const num of numbers6) {
   if (seen.includes(num)) {
-   if(!arrayOfDuplicates.includes(num)){
-      arrayOfDuplicates.push(num)
-   }
+    if (!arrayOfDuplicates.includes(num)) {
+      arrayOfDuplicates.push(num);
+    }
   } else {
-   seen.push(num)
+    seen.push(num);
   }
 }
-console.log(arrayOfDuplicates);
+// console.log(arrayOfDuplicates); // [5,8]
+
+/*
+ * Task 7
+ */
+const numbers7 = [12, 45, 8, 67, 34, 67, 25];
+let max = numbers7[0];
+let secondMax = numbers7[0];
+
+for (const number of numbers7) {
+  if (number > max) {
+    secondMax = max;
+    max = number;
+  } else if (number > secondMax && number !== max) {
+    secondMax = number;
+  }
+}
+// console.log(max); //67
+// console.log(secondMax);//45
+
+/*
+ * Task 8
+ */
+const numbers8 = [12, 45, 8, 67, 34, 8, 25];
+let smallest = Infinity
+let secondSmallest = Infinity;
+
+for (const number of numbers8) {
+  if (number < smallest) {
+    secondSmallest = smallest;
+    smallest = number;
+  } else if (number < secondSmallest && number !== smallest) {
+    secondSmallest = number;
+  }
+}
+console.log(secondSmallest);
