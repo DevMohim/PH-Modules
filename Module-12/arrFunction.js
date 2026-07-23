@@ -58,22 +58,55 @@ function calculateAvg(arr) {
 }
 console.log(parseFloat(calculateAvg(number3).toFixed(1)));
 
-
-
-/* 
-* Task 5
+/*
+ * Task 5
  */
 const numbers4 = [1, 2, 3, 4, 5, 6];
 
-function countEven(arr){
-   let count = 0;
+function countEven(arr) {
+  let count = 0;
 
-   for(const number of arr){
-      if(number % 2 === 0){
-         count++
-      } 
-   }
-   return count
+  for (const number of arr) {
+    if (number % 2 === 0) {
+      count++;
+    }
+  }
+  return count;
 }
 
-console.log(countEven(numbers4))
+console.log(countEven(numbers4));
+
+/*
+ * Task 6
+ */
+const numbers5 = [10, 15, 20, 25, 30];
+
+function getEvenNumber(arr) {
+  const even = [];
+  for (const number of arr) {
+    if (number % 2 === 0) {
+      even.push(number);
+    }
+  }
+  return even;
+}
+console.log(getEvenNumber(numbers5));
+
+/*
+ * Task 7
+ */
+const numbers6 = [2, 4, 6, 8];
+
+function findFirstOddNumber(arr) {
+  for (const number of arr) {
+    if (number % 2 !== 0) {
+      return `First odd is  ${number}`;
+    }
+  }
+  return `Noo odd number found`;
+}
+console.log(findFirstOddNumber(numbers6));
+
+/*
+ * Task 8
+ */
