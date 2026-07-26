@@ -253,3 +253,137 @@ function listKeys(obj) {
 // console.log(listKeys({ name: "Sam", age: 25, city: "Dhaka" }));
 // Expected: ["name", "age", "city"]
 
+
+
+/* 
+* Task 8B
+ */
+// Input: an object, a key (string), a default value
+// Output: the value at that key, or the default
+// Returns: any value
+ 
+function getValueOrDefault(obj, key, defaultValue) {
+  if(obj.hasOwnProperty(key)){
+    return obj.age
+  } else {
+    return defaultValue
+  }
+}
+let person = { name: "Sam", age: 25 };
+// console.log(getValueOrDefault(person, "age", 0));        // Expected: 25
+// console.log(getValueOrDefault(person, "grade", "N/A"));  // Expected: "N/A"
+
+
+/* 
+* Task 9
+ */
+// Input: an array of words, a length threshold
+// Output: array of words longer than the threshold
+// Returns: an array
+ 
+function getWordsLongerThan(words, minLength) {
+  let longWords = [];
+for(let word of words){
+  if(word.length > 3 ){
+    longWords.push(word);
+  }
+}
+  return longWords;
+}
+ 
+// Input: an array
+// Output: the number of elements in the array
+// Returns: a number
+ 
+function countArray(arr) {
+  let count = 0; 
+  for (let item of arr){
+    count++
+  }
+  return count;
+}
+ 
+let words = ["cat", "elephant", "dog", "hippopotamus", "ox"];
+let longWords = getWordsLongerThan(words, 3);
+let total = countArray(longWords);
+ 
+// console.log(longWords); // Expected: ["elephant", "hippopotamus"]
+// console.log(total);     // Expected: 2
+
+
+
+/* 
+* Task 10A
+ */
+// Input: a number
+// Output: true or false
+// Returns: a boolean
+ 
+function isPerfectSquare(num) {
+  if (Number.isInteger(Math.sqrt(num))) {
+    return true;
+  } else {
+    return false;
+  }
+}
+ 
+// console.log(isPerfectSquare(16)); // Expected: true
+// console.log(isPerfectSquare(20)); // Expected: false
+
+
+/* 
+* Task 10B
+ */
+// Input: a sentence (string)
+// Output: sentence with word order reversed
+// Returns: a string
+ 
+function reverseWords(sentence) {
+  const reversedSentence = sentence.split(" ").reverse().join(" ")
+ return reversedSentence
+}
+ 
+// console.log(reverseWords("hello world")); // Expected: "world hello"
+
+
+/* 
+* Task 10C
+ */
+// Input: an array of numbers
+// Output: array with duplicates removed
+// Returns: an array
+ 
+function removeDuplicates(numbers) {
+  let unique = [];
+ for(const number of numbers){
+  if(!unique.includes(number)){
+    unique.push(number)
+  }
+ }
+  return unique;
+}
+ 
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // Expected: [1, 2, 3, 4, 5]
+
+
+
+/* 
+* Task 10D
+ */
+// Input: an object (values are unique)
+// Output: a new object with keys and values swapped
+// Returns: an object
+ 
+function invertObject(obj) {
+  let inverted = {};
+
+  for (const key in obj){
+    inverted[obj[key]] = key
+  }
+ 
+  return inverted;
+}
+ 
+console.log(invertObject({ a: 1, b: 2, c: 3 }));
+// Expected: { 1: "a", 2: "b", 3: "c" }
+
