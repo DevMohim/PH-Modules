@@ -161,7 +161,6 @@ const words = [
 ];
 
 function anagramsTogether(words) {
-
   return words.reduce((acc, word) => {
     const key = word.split("").sort().join("");
 
@@ -175,3 +174,22 @@ function anagramsTogether(words) {
 }
 
 // console.log(anagramsTogether(words));
+
+/*
+ * Task 7
+ */
+const products = [
+  { name: "Laptop", category: "Electronics", price: 1200 },
+  { name: "Phone", category: "Electronics", price: 800 },
+  { name: "TV", category: "Electronics", price: 1500 },
+  { name: "Shirt", category: "Clothing", price: 40 },
+  { name: "Jacket", category: "Clothing", price: 120 },
+  { name: "Jeans", category: "Clothing", price: 80 },
+  { name: "Apple", category: "Food", price: 2 },
+  { name: "Cake", category: "Food", price: 25 },
+  { name: "Pizza", category: "Food", price: 15 },
+];
+
+function mostExpensiveByCategory(products) {}
+
+console.log(mostExpensiveByCategory(products))
