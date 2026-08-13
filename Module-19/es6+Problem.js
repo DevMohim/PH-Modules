@@ -38,24 +38,20 @@ const employees = [
   { name: "Sakib", department: "IT", active: true },
   { name: "Rafi", department: "Finance", active: true },
 ];
-console.log(getActiveEmployees(employees));
+// console.log(getActiveEmployees(employees));
 
-
-/* 
-* Task 3
+/*
+ * Task 3
  */
 const getDepartmentSalary = (employees) => {
+  return employees.reduce((acc, employee) => {
+    if (!acc[employee.department]) {
+      acc[employee.department] = 0;
+    }
+    acc[employee.department] += employee.salary;
 
-   return employees.reduce((acc,employee) => {
-       if(!acc[employee.department]){
-         acc[employee.department] = 0
-       }
-       acc[employee.department] += employee.salary
-
-
-       return acc
-   } ,{})
-  
+    return acc;
+  }, {});
 };
 const employeees = [
   { name: "Rahim", department: "IT", salary: 50000 },
@@ -64,5 +60,80 @@ const employeees = [
   { name: "Rafi", department: "HR", salary: 45000 },
   { name: "Tamim", department: "Finance", salary: 55000 },
 ];
-console.log(getDepartmentSalary(employeees))
+// console.log(getDepartmentSalary(employeees))
 
+/*
+ * Task 4
+ */
+const highestNumberStudent = (students) => {
+  return students.reduce((top, student) => {
+    if (!top.name) {
+      return student;
+    }
+
+    const { marks: topMarks } = top;
+    const { marks: currentMarks } = student;
+
+    if (currentMarks > topMarks) {
+      return student;
+    }
+
+    return top;
+  }, {});
+};
+
+const students = [
+  { name: "Rahim", marks: 78 },
+  { name: "Karim", marks: 91 },
+  { name: "Sakib", marks: 85 },
+  { name: "Rafi", marks: 95 },
+];
+// console.log(highestNumberStudent(students));
+
+/*
+ * Task 5
+ */
+const getHighestSpendingCustomer = (orders) => {
+  const totalSpending = orders.reduce((acc, order) => {
+    if (!acc[order.customer]) {
+      acc[order.customer] = {
+        customer: order.customer,
+        price: 0,
+      };
+    }
+    acc[order.customer].price += order.price;
+
+    return acc;
+  }, {});
+
+  const highestSpendingCustomer = Object.values(totalSpending).reduce(
+    (top, customer) => {
+      if (!top.customer) {
+        return customer;
+      }
+
+      const { price: topPrice } = top;
+      const { price: currPrice } = customer;
+
+      if (currPrice > topPrice) {
+        return customer;
+      }
+
+      return top;
+    },
+    {},
+  );
+
+  return highestSpendingCustomer;
+};
+
+const orders = [
+  { customer: "Rahim", product: "Laptop", price: 80000 },
+  { customer: "Karim", product: "Mouse", price: 1500 },
+  { customer: "Rahim", product: "Keyboard", price: 3000 },
+  { customer: "Sakib", product: "Phone", price: 50000 },
+  { customer: "Karim", product: "Monitor", price: 25000 },
+  { customer: "Rahim", product: "Mouse", price: 1500 },
+];
+
+console.log(getHighestSpendingCustomer(orders));
