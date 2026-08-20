@@ -180,12 +180,12 @@ const findMenuItemsByTag = (menus: Menu[], tag: string): Menu[] => {
  */
 
 interface LikeNotification {
-  type: 'like';
+  type: "like";
   fromUser: string;
 }
 
 interface SystemNotification {
-  type: 'system';
+  type: "system";
   message: string;
   actionUrl?: string;
 }
@@ -202,19 +202,87 @@ const renderNotification = (
   }`;
 };
 
-console.log(renderNotification({ type: "like", fromUser: "Aisha" }));
+// console.log(renderNotification({ type: "like", fromUser: "Aisha" }));
 
-console.log(
-  renderNotification({
-    type: "system",
-    message: "Maintenance complete.",
-  }),
-);
+// console.log(
+//   renderNotification({
+//     type: "system",
+//     message: "Maintenance complete.",
+//   }),
+// );
 
-console.log(
-  renderNotification({
-    type: "system",
-    message: "Your subscription is expiring soon.",
-    actionUrl: "/billing",
-  }),
-);
+// console.log(
+//   renderNotification({
+//     type: "system",
+//     message: "Your subscription is expiring soon.",
+//     actionUrl: "/billing",
+//   }),
+// );
+
+/*
+ * Problem 9 :Cloud Storage Usage Tracker
+ */
+
+interface UploadAction {
+  type: "upload";
+  sizeMB: number;
+}
+
+interface DeleteAction {
+  type: "delete";
+  sizeMB: number;
+}
+
+const updateStorageUsage = (
+  currentUsageMB: number,
+  action: UploadAction | DeleteAction,
+): number => {
+  if (action.type === "upload") {
+    return action.sizeMB + currentUsageMB;
+  }
+
+  return Math.max(0, currentUsageMB - action.sizeMB);
+};
+
+// console.log(updateStorageUsage(2000, { type: "upload", sizeMB: 500 }))
+// console.log(updateStorageUsage(2000, { type: "delete", sizeMB: 800 }));
+// console.log(updateStorageUsage(300, { type: "delete", sizeMB: 1000 }))
+
+/*
+ * Problem 10 : EV Scooter Rental Fee Calculator
+ */
+type VehicleType = "scooter" | "ebike" | "moped";
+
+const calculateRentalFee = (vehicle: VehicleType, minutes: number): number => {
+
+  // if(typeof vehicle !== 'string' || typeof minutes !== 'number'){
+  //   return 'Invalid'
+  // }
+
+
+  // if(minutes === 0){
+  //   return 
+  // }
+
+  let unlockFee : number;
+  let costPerMinute : number ;
+  if (vehicle === "scooter") {
+    unlockFee = 10;
+    costPerMinute =2
+  } else if( vehicle === 'ebike'){
+    unlockFee = 15
+    costPerMinute = 3
+  } else {
+    unlockFee = 25
+    costPerMinute = 5
+  }
+
+  const finalFee : number = unlockFee + (costPerMinute * minutes)
+  return finalFee
+};
+
+
+// console.log(calculateRentalFee("scooter", 20));
+// console.log(calculateRentalFee("ebike", 20));
+// console.log(calculateRentalFee("moped", 20));
+// console.log(calculateRentalFee(undefined));

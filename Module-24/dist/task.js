@@ -72,14 +72,38 @@ const renderNotification = (notification) => {
     }
     return `${notification.type}: ${notification.message} ${notification.actionUrl ? `(${notification.actionUrl})` : ""}`;
 };
-console.log(renderNotification({ type: "like", fromUser: "Aisha" }));
-console.log(renderNotification({
-    type: "system",
-    message: "Maintenance complete.",
-}));
-console.log(renderNotification({
-    type: "system",
-    message: "Your subscription is expiring soon.",
-    actionUrl: "/billing",
-}));
+const updateStorageUsage = (currentUsageMB, action) => {
+    if (action.type === "upload") {
+        return action.sizeMB + currentUsageMB;
+    }
+    return Math.max(0, currentUsageMB - action.sizeMB);
+};
+const calculateRentalFee = (vehicle, minutes) => {
+    // if(typeof vehicle !== 'string' || typeof minutes !== 'number'){
+    //   return 'Invalid'
+    // }
+    // if(minutes === 0){
+    //   return 
+    // }
+    let unlockFee;
+    let costPerMinute;
+    if (vehicle === "scooter") {
+        unlockFee = 10;
+        costPerMinute = 2;
+    }
+    else if (vehicle === 'ebike') {
+        unlockFee = 15;
+        costPerMinute = 3;
+    }
+    else {
+        unlockFee = 25;
+        costPerMinute = 5;
+    }
+    const finalFee = unlockFee + (costPerMinute * minutes);
+    return finalFee;
+};
+// console.log(calculateRentalFee("scooter", 20));
+// console.log(calculateRentalFee("ebike", 20));
+// console.log(calculateRentalFee("moped", 20));
+// console.log(calculateRentalFee(undefined));
 //# sourceMappingURL=task.js.map
